@@ -8,3 +8,13 @@ Available Style / Colors - Styles.js / StyleItem.js
 Delete Color
 
 Delete Style
+
+==============================================
+
+> npm install
+
+> npm start
+
+
+
+==============================================
