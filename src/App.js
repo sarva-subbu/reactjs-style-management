@@ -3,6 +3,7 @@ import logo from './logo.png';
 import './App.css';
 import Styles from './Components/Styles';
 import uuid from 'uuid';
+import StyleAdd from './Components/StyleAdd';
 
 class App extends Component {
   
@@ -23,6 +24,23 @@ class App extends Component {
     });
   }
 
+  handleAddStyle(newStyle) {
+    let styles = this.state.styles;
+    styles.push(newStyle);
+    this.setState({
+      styles: styles
+    });
+  }
+
+  handleDeleteStyle(styleId) {
+    let styles = this.state.styles;
+    let index = styles.findIndex(s => s.id === styleId);
+    styles.splice(index, 1);
+    this.setState({
+      styles: styles
+    });
+  }
+
   render() {
     return (
       <div className="App">
@@ -36,7 +54,11 @@ class App extends Component {
           
         </p>
 
-        <Styles styles={this.state.styles}/>
+        <Styles styles={this.state.styles} deleteStyle={this.handleDeleteStyle.bind(this)}/>
+        
+        <br/><br/>
+        
+        <StyleAdd addStyle={this.handleAddStyle.bind(this)}/>
 
       </div>
     );
