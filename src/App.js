@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import logo from './logo.png';
 import './App.css';
 import Styles from './Components/Styles';
 import uuid from 'uuid';
@@ -9,12 +9,18 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
+      styles: []
+    };
+  }
+
+  componentWillMount() {
+    this.setState({
       styles: [
       {id:uuid.v4(), name:'sty1', description:'style 1',colors:[{id:uuid.v4(), name:'red'},{id:uuid.v4(), name:'green'}]},
       {id:uuid.v4(), name:'sty2', description:'style 2',colors:[{id:uuid.v4(), name:'black'},{id:uuid.v4(), name:'white'}]},
       {id:uuid.v4(), name:'sty3', description:'style 3',colors:[{id:uuid.v4(), name:'blue'},{id:uuid.v4(), name:'pink'}]}
       ]
-    };
+    });
   }
 
   render() {
